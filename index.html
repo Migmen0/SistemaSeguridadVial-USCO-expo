@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguridad Vial USCO - Sistema Inteligente</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkbg: '#0b0f19',
+                        cardbg: '#111827',
+                        cardborder: '#1f293d',
+                        accent: '#0d9488',
+                        accentglow: '#14b8a6'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-darkbg text-gray-100 font-sans min-h-screen flex flex-col justify-between selection:bg-teal-500 selection:text-white">
+
+<!-- NAVBAR SUPERIOR -->
+<header class="sticky top-0 z-50 bg-[#0b0f19]/90 backdrop-blur-md border-b border-gray-800 px-8 py-5">
+    <div class="w-full max-w-[1900px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+        <!-- Logo y Título con enlace a Inicio -->
+        <a href="index.html" class="flex items-center gap-3.5 cursor-pointer group">
+            <div class="bg-teal-500/10 border border-teal-500/30 p-3 rounded-xl text-teal-400 group-hover:bg-teal-500/20 transition">
+                <i class="fa-solid fa-shield-halved text-2xl"></i>
+            </div>
+            <div>
+                <h1 class="font-bold text-lg tracking-wide text-white group-hover:text-teal-400 transition">Seguridad Vial USCO</h1>
+                <p class="text-xs text-gray-400">Ingeniería de Software · Universidad Surcolombiana</p>
+            </div>
+        </a>
+
+        <!-- Menú de Navegación multipágina -->
+        <nav class="flex flex-wrap items-center justify-center gap-2 text-sm font-medium">
+            <a href="index.html" class="px-3.5 py-2 rounded-lg transition text-teal-400 bg-teal-500/10">Inicio</a>
+            <a href="problema.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Problema</a>
+            <a href="datos.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Datos & Limpieza</a>
+            <a href="eda.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Exploración (EDA)</a>
+            <a href="modelos.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Modelos & ML</a>
+            <a href="simulador.html" class="px-3.5 py-2 rounded-lg bg-blue-600/20 border border-blue-500/40 text-blue-400 hover:bg-blue-600/30 flex items-center gap-1.5"><i class="fa-solid fa-wand-magic-sparkles"></i> Simulador</a>
+            <a href="conclusiones.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Conclusiones</a>
+        </nav>
+    </div>
+</header>
+
+<!-- CONTENIDO PRINCIPAL: INICIO (Máxima amplitud y botones grandes) -->
+<main class="w-full max-w-[1900px] mx-auto px-8 lg:px-20 py-24 flex-grow flex items-center">
+
+    <section class="relative overflow-hidden w-full animate-fade-in-up">
+        <!-- Círculo de luz ambiental de fondo -->
+        <div class="hero-glow"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+
+            <!-- Columna Izquierda: Título y Botones Grandes -->
+            <div class="lg:col-span-7 space-y-10 text-left">
+                <!-- Título Principal -->
+                <h2 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.15] pt-2 pb-2">
+                    Seguridad Vial Urbana <br>
+                    <span class="bg-gradient-to-r from-teal-400 via-emerald-400 to-blue-500 bg-clip-text text-transparent">
+                        Mediante Ciencia de Datos
+                    </span>
+                </h2>
+
+                <!-- Descripción principal -->
+                <p class="text-gray-300 text-lg sm:text-xl leading-relaxed max-w-3xl pt-2">
+                    Desarrollo y validación de modelos de aprendizaje automático y un sistema de ensamble ponderado sobre registros oficiales de vehículos en Colombia (<strong class="text-white">Ley 2251 de 2022</strong>).
+                </p>
+
+                <!-- Botones de Acción Ampliados y Destacados -->
+                <div class="flex flex-wrap gap-6 pt-4">
+                    <a href="simulador.html" class="bg-gradient-to-r from-teal-500 to-blue-600 hover:from-teal-400 hover:to-blue-500 text-white font-bold px-10 py-5 rounded-2xl shadow-2xl shadow-teal-950/50 transition-all transform hover:-translate-y-1 flex items-center gap-3.5 text-lg">
+                        <i class="fa-solid fa-wand-magic-sparkles text-xl"></i> Probar Simulador Interactivo
+                    </a>
+                    <a href="modelos.html" class="bg-[#111827] hover:bg-[#1f293d] border border-[#1f293d] hover:border-gray-700 text-gray-200 font-semibold px-9 py-5 rounded-2xl transition-all transform hover:-translate-y-1 flex items-center gap-3.5 text-lg shadow-xl">
+                        <i class="fa-solid fa-chart-line text-teal-400 text-xl"></i> Ver Resultados ML
+                    </a>
+                </div>
+            </div>
+
+            <!-- Columna Derecha: Tarjetas de Autor e Institución -->
+            <div class="lg:col-span-5 space-y-8">
+                <div class="bg-gradient-to-br from-[#111827] to-[#0f172a] border border-[#1e293b] p-8 sm:p-10 rounded-2xl flex items-center gap-6 card-hover-glow shadow-2xl">
+                    <div class="bg-blue-500/10 text-blue-400 p-5 rounded-2xl border border-blue-500/20 shrink-0">
+                        <i class="fa-solid fa-user-graduate text-3xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold tracking-widest text-teal-400 uppercase">Autor del Proyecto</span>
+                        <h3 class="font-bold text-white text-lg sm:text-xl mt-1.5">Miguel Esteban Mendoza Calderón</h3>
+                        <p class="text-sm text-gray-400 mt-1">Programa de Ingeniería de Software</p>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-[#111827] to-[#0f172a] border border-[#1e293b] p-8 sm:p-10 rounded-2xl flex items-center gap-6 card-hover-glow shadow-2xl">
+                    <div class="bg-teal-500/10 text-teal-400 p-5 rounded-2xl border border-teal-500/20 shrink-0">
+                        <i class="fa-solid fa-building-columns text-3xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold tracking-widest text-teal-400 uppercase">Institución Académica</span>
+                        <h3 class="font-bold text-white text-lg sm:text-xl mt-1.5">Universidad Surcolombiana (USCO)</h3>
+                        <p class="text-sm text-gray-400 mt-1">Facultad de Ingeniería · Neiva, Huila</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-gray-800 bg-[#0b0f19] py-8 px-10 text-center text-xs text-gray-400 mt-16">
+    <div class="w-full max-w-[1900px] mx-auto flex flex-col sm:flex-row justify-between items-center gap-3">
+        <p class="font-bold text-gray-300">Sistema Inteligente para la Predicción y Prevención de Riesgos en la Seguridad Vial Urbana</p>
+        <p>Universidad Surcolombiana (USCO) · Facultad de Ingeniería (2026)</p>
+        <p class="text-teal-400 font-medium">Autor: Miguel Esteban Mendoza Calderón</p>
+    </div>
+</footer>
+
+</body>
+</html>

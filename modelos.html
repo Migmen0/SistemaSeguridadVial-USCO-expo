@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelos y ML - Seguridad Vial USCO</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkbg: '#0b0f19',
+                        cardbg: '#111827',
+                        cardborder: '#1f293d',
+                        accent: '#0d9488',
+                        accentglow: '#14b8a6'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-darkbg text-gray-100 font-sans min-h-screen flex flex-col justify-between selection:bg-teal-500 selection:text-white">
+
+<!-- NAVBAR SUPERIOR -->
+<header class="sticky top-0 z-50 bg-[#0b0f19]/90 backdrop-blur-md border-b border-gray-800 px-8 py-5">
+    <div class="w-full max-w-[1900px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+        <!-- Logo y Título con enlace a Inicio -->
+        <a href="index.html" class="flex items-center gap-3.5 cursor-pointer group">
+            <div class="bg-teal-500/10 border border-teal-500/30 p-3 rounded-xl text-teal-400 group-hover:bg-teal-500/20 transition">
+                <i class="fa-solid fa-shield-halved text-2xl"></i>
+            </div>
+            <div>
+                <h1 class="font-bold text-lg tracking-wide text-white group-hover:text-teal-400 transition">Seguridad Vial USCO</h1>
+                <p class="text-xs text-gray-400">Ingeniería de Software · Universidad Surcolombiana</p>
+            </div>
+        </a>
+
+        <!-- Menú de Navegación multipágina -->
+        <nav class="flex flex-wrap items-center justify-center gap-2 text-sm font-medium">
+            <a href="index.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Inicio</a>
+            <a href="problema.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Problema</a>
+            <a href="datos.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Datos & Limpieza</a>
+            <a href="eda.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Exploración (EDA)</a>
+            <a href="modelos.html" class="px-3.5 py-2 rounded-lg transition text-teal-400 bg-teal-500/10">Modelos & ML</a>
+            <a href="simulador.html" class="px-3.5 py-2 rounded-lg bg-blue-600/20 border border-blue-500/40 text-blue-400 hover:bg-blue-600/30 flex items-center gap-1.5"><i class="fa-solid fa-wand-magic-sparkles"></i> Simulador</a>
+            <a href="conclusiones.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Conclusiones</a>
+        </nav>
+    </div>
+</header>
+
+<!-- CONTENIDO PRINCIPAL: MODELOS Y MACHINE LEARNING -->
+<main class="w-full max-w-[1900px] mx-auto px-8 lg:px-20 py-20 flex-grow">
+
+    <section class="relative overflow-hidden w-full animate-fade-in-up space-y-12">
+
+        <!-- Cabecera de la sección -->
+        <div class="space-y-4 text-left border-b border-gray-800 pb-8">
+
+            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                Modelos Predictivos y <span class="bg-gradient-to-r from-teal-400 via-emerald-400 to-blue-500 bg-clip-text text-transparent">Evaluación Experimental</span>
+            </h2>
+            <p class="text-gray-300 text-base sm:text-lg max-w-4xl leading-relaxed">
+                Formulación matemática, entrenamiento y comparación de los cuatro algoritmos obligatorios bajo un riguroso manejo del desbalance de clases.
+            </p>
+        </div>
+
+        <!-- Tabla 5: Comparativa de Métricas sobre el Conjunto de Prueba -->
+        <div class="card-hover-glow p-8 rounded-2xl space-y-6 shadow-xl">
+            <h3 class="text-xl font-bold text-white flex items-center gap-3">
+                <div class="p-2.5 rounded-xl bg-teal-500/10 text-teal-400 border border-teal-500/20">
+                    <i class="fa-solid fa-table-cells"></i>
+                </div>
+                Comparación Experimental de Desempeño ($n = 4.000$ registros de prueba)
+            </h3>
+            <p class="text-gray-300 text-sm leading-relaxed">
+                Evaluación sobre el subconjunto de prueba estratificado (3.680 CON HERIDOS [92,0%] y 320 CON MUERTOS [8,0%]).
+            </p>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse text-sm">
+                    <thead>
+                    <tr class="border-b border-gray-800 text-gray-400 bg-gray-900/40">
+                        <th class="py-3 px-4 font-semibold">Modelo</th>
+                        <th class="py-3 px-4 font-semibold">Accuracy</th>
+                        <th class="py-3 px-4 font-semibold">Balanced Acc.</th>
+                        <th class="py-3 px-4 font-semibold">Recall (Muertos)</th>
+                        <th class="py-3 px-4 font-semibold">F1 (Muertos)</th>
+                        <th class="py-3 px-4 font-semibold">F1 Macro</th>
+                        <th class="py-3 px-4 font-semibold">ROC AUC</th>
+                        <th class="py-3 px-4 font-semibold">Tiempo</th>
+                    </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-800/60 text-gray-300">
+                    <tr class="bg-teal-950/20 hover:bg-teal-900/20 transition">
+                        <td class="py-3 px-4 font-bold text-teal-400">Random Forest ⭐</td>
+                        <td class="py-3 px-4">0,7810</td>
+                        <td class="py-3 px-4 font-bold text-white">0,7026</td>
+                        <td class="py-3 px-4 font-bold text-emerald-400">60,94 %</td>
+                        <td class="py-3 px-4">0,3081</td>
+                        <td class="py-3 px-4 font-bold text-white">0,5890</td>
+                        <td class="py-3 px-4">0,7788</td>
+                        <td class="py-3 px-4">0,79 s</td>
+                    </tr>
+                    <tr class="hover:bg-gray-800/20 transition">
+                        <td class="py-3 px-4 font-medium text-white">SVM (LinearSVC)</td>
+                        <td class="py-3 px-4">0,7560</td>
+                        <td class="py-3 px-4">0,6734</td>
+                        <td class="py-3 px-4 text-emerald-400">57,50 %</td>
+                        <td class="py-3 px-4">0,2738</td>
+                        <td class="py-3 px-4">0,5636</td>
+                        <td class="py-3 px-4">0,7319</td>
+                        <td class="py-3 px-4">0,20 s</td>
+                    </tr>
+                    <tr class="hover:bg-gray-800/20 transition">
+                        <td class="py-3 px-4 font-medium text-white">Regresión Lineal*</td>
+                        <td class="py-3 px-4 text-amber-400 font-bold">0,9165</td>
+                        <td class="py-3 px-4">0,5224</td>
+                        <td class="py-3 px-4 text-red-400">5,31 %</td>
+                        <td class="py-3 px-4">0,0924</td>
+                        <td class="py-3 px-4">0,5243</td>
+                        <td class="py-3 px-4">N/A</td>
+                        <td class="py-3 px-4">0,25 s</td>
+                    </tr>
+                    <tr class="hover:bg-gray-800/20 transition">
+                        <td class="py-3 px-4 font-medium text-white">KNN (k=7)</td>
+                        <td class="py-3 px-4 text-amber-400 font-bold">0,9145</td>
+                        <td class="py-3 px-4">0,5213</td>
+                        <td class="py-3 px-4 text-red-400">5,31 %</td>
+                        <td class="py-3 px-4">0,0904</td>
+                        <td class="py-3 px-4">0,5228</td>
+                        <td class="py-3 px-4">0,6854</td>
+                        <td class="py-3 px-4">0,08 s</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-xs text-gray-400">*La Regresión Lineal incluye regla de umbral en 0.5 como referencia y registró MAE = 0,1335 y RMSE = 0,2648.</p>
+        </div>
+
+        <!-- Matrices de Confusión y Análisis Crítico -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+            <!-- Análisis del Desbalance y Modelos Lineales -->
+            <div class="card-hover-glow p-8 rounded-2xl space-y-4 shadow-xl">
+                <h3 class="text-xl font-bold text-white flex items-center gap-3">
+                    <div class="p-2.5 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                    La Trampa del Accuracy y Modelos Lineales
+                </h3>
+                <p class="text-gray-300 text-base leading-relaxed">
+                    Tanto KNN como la Regresión Lineal muestran un <strong>Accuracy superior al 91%</strong>; sin embargo, esto es un espejismo estadístico provocado por el desbalance de clases. Al examinar su desempeño, se observa que solo detectaron <strong>17 de los 320 casos fatales reales</strong> (Recall de apenas 5,31%), dejando pasar sin alerta 303 accidentes con muertos.
+                </p>
+                <p class="text-gray-300 text-base leading-relaxed">
+                    Esto demuestra que los modelos sin ajuste de clases sufren un sesgo severo hacia la clase mayoritaria (heridos), siendo inútiles para tareas de prevención de alto riesgo.
+                </p>
+            </div>
+
+            <!-- Justificación de Random Forest y SVM -->
+            <div class="card-hover-glow p-8 rounded-2xl space-y-4 shadow-xl border border-teal-500/30">
+                <h3 class="text-xl font-bold text-teal-400 flex items-center gap-3">
+                    <div class="p-2.5 rounded-xl bg-teal-500/10 text-teal-400 border border-teal-500/20">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    Justificación del Modelo Seleccionado (Random Forest)
+                </h3>
+                <p class="text-gray-300 text-base leading-relaxed">
+                    <strong>Random Forest</strong> obtuvo el mejor desempeño integral con un Balanced Accuracy de 70,26%, un F1-Macro de 0,5890, un ROC AUC de 0,7788 y la capacidad de detectar <strong>195 de los 320 accidentes fatales</strong> (Recall de 60,94%).
+                </p>
+                <p class="text-gray-300 text-base leading-relaxed">
+                    En segundo lugar se ubicó <strong>SVM (LinearSVC)</strong> con un Recall del 57,50%. Por esta razón, Random Forest se consolida como el modelo principal respaldado por el sistema.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Sistema de Ensamble Ponderado -->
+        <div class="card-hover-glow p-8 rounded-2xl space-y-6 shadow-xl">
+            <h3 class="text-xl font-bold text-white flex items-center gap-3">
+                <div class="p-2.5 rounded-xl bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                    <i class="fa-solid fa-network-wired"></i>
+                </div>
+                Sistema de Ensamble por Voto Ponderado
+            </h3>
+            <p class="text-gray-300 text-base leading-relaxed">
+                Para cumplir con la integración institucional de los cuatro algoritmos obligatorios en una sola salida de producción, el sistema implementa un metaclasificador unificado basado en pesos analíticos derivados de su Balanced Accuracy:
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+                <div class="bg-gray-900/60 p-4 rounded-xl border border-gray-800">
+                    <p class="text-teal-400 font-bold">Random Forest</p>
+                    <p class="text-2xl font-extrabold text-white">40%</p>
+                    <p class="text-xs text-gray-400">Peso analítico principal</p>
+                </div>
+                <div class="bg-gray-900/60 p-4 rounded-xl border border-gray-800">
+                    <p class="text-blue-400 font-bold">SVM (LinearSVC)</p>
+                    <p class="text-2xl font-extrabold text-white">30%</p>
+                    <p class="text-xs text-gray-400">Margen optimizado</p>
+                </div>
+                <div class="bg-gray-900/60 p-4 rounded-xl border border-gray-800">
+                    <p class="text-purple-400 font-bold">KNN (k=7)</p>
+                    <p class="text-2xl font-extrabold text-white">15%</p>
+                    <p class="text-xs text-gray-400">Vecindad geométrica</p>
+                </div>
+                <div class="bg-gray-900/60 p-4 rounded-xl border border-gray-800">
+                    <p class="text-amber-400 font-bold">Regresión Lineal</p>
+                    <p class="text-2xl font-extrabold text-white">15%</p>
+                    <p class="text-xs text-gray-400">Modelo de referencia</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-gray-800 bg-[#0b0f19] py-8 px-10 text-center text-xs text-gray-400 mt-16">
+    <div class="w-full max-w-[1900px] mx-auto flex flex-col sm:flex-row justify-between items-center gap-3">
+        <p class="font-bold text-gray-300">Sistema Inteligente para la Predicción y Prevención de Riesgos en la Seguridad Vial Urbana</p>
+        <p>Universidad Surcolombiana (USCO) · Facultad de Ingeniería (2026)</p>
+        <p class="text-teal-400 font-medium">Autor: Miguel Esteban Mendoza Calderón</p>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conclusiones - Seguridad Vial USCO</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkbg: '#0b0f19',
+                        cardbg: '#111827',
+                        cardborder: '#1f293d',
+                        accent: '#0d9488',
+                        accentglow: '#14b8a6'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-darkbg text-gray-100 font-sans min-h-screen flex flex-col justify-between selection:bg-teal-500 selection:text-white">
+
+<!-- NAVBAR SUPERIOR -->
+<header class="sticky top-0 z-50 bg-[#0b0f19]/90 backdrop-blur-md border-b border-gray-800 px-8 py-5">
+    <div class="w-full max-w-[1900px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+        <!-- Logo y Título con enlace a Inicio -->
+        <a href="index.html" class="flex items-center gap-3.5 cursor-pointer group">
+            <div class="bg-teal-500/10 border border-teal-500/30 p-3 rounded-xl text-teal-400 group-hover:bg-teal-500/20 transition">
+                <i class="fa-solid fa-shield-halved text-2xl"></i>
+            </div>
+            <div>
+                <h1 class="font-bold text-lg tracking-wide text-white group-hover:text-teal-400 transition">Seguridad Vial USCO</h1>
+                <p class="text-xs text-gray-400">Ingeniería de Software · Universidad Surcolombiana</p>
+            </div>
+        </a>
+
+        <!-- Menú de Navegación multipágina -->
+        <nav class="flex flex-wrap items-center justify-center gap-2 text-sm font-medium">
+            <a href="index.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Inicio</a>
+            <a href="problema.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Problema</a>
+            <a href="datos.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Datos & Limpieza</a>
+            <a href="eda.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Exploración (EDA)</a>
+            <a href="modelos.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Modelos & ML</a>
+            <a href="simulador.html" class="px-3.5 py-2 rounded-lg bg-blue-600/20 border border-blue-500/40 text-blue-400 hover:bg-blue-600/30 flex items-center gap-1.5"><i class="fa-solid fa-wand-magic-sparkles"></i> Simulador</a>
+            <a href="conclusiones.html" class="px-3.5 py-2 rounded-lg transition text-teal-400 bg-teal-500/10">Conclusiones</a>
+        </nav>
+    </div>
+</header>
+
+<!-- CONTENIDO PRINCIPAL: CONCLUSIONES Y LIMITACIONES -->
+<main class="w-full max-w-[1900px] mx-auto px-8 lg:px-20 py-20 flex-grow">
+
+    <section class="relative overflow-hidden w-full animate-fade-in-up space-y-12">
+
+        <!-- Cabecera de la sección -->
+        <div class="space-y-4 text-left border-b border-gray-800 pb-8">
+
+            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                Conclusiones y <span class="bg-gradient-to-r from-teal-400 via-emerald-400 to-blue-500 bg-clip-text text-transparent">Recomendaciones</span>
+            </h2>
+            <p class="text-gray-300 text-base sm:text-lg max-w-4xl leading-relaxed">
+                Síntesis de los logros del proyecto, alcance metodológico, limitaciones estadísticas y líneas de acción preventiva basadas en datos.
+            </p>
+        </div>
+
+        <!-- Grid de Contenido Principal -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+
+            <!-- Columna Izquierda: Conclusiones Principales -->
+            <div class="lg:col-span-7 space-y-8">
+
+                <div class="card-hover-glow p-8 rounded-2xl space-y-4 shadow-xl">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-3">
+                        <div class="p-2.5 rounded-xl bg-teal-500/10 text-teal-400 border border-teal-500/20">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        Conclusiones Generales del Proyecto
+                    </h3>
+                    <p class="text-gray-300 text-base leading-relaxed">
+                        Se desarrolló, verificó y documentó de extremo a extremo un sistema inteligente para el estudio y clasificación de la gravedad registrada en accidentes viales urbanos en Colombia. La auditoría y limpieza reproducible sobre los 450.335 registros originales permitió estructurar un conjunto libre de fuga de datos con <strong>290.936 observaciones únicas</strong> y 12 atributos.
+                    </p>
+                    <p class="text-gray-300 text-base leading-relaxed">
+                        La evaluación experimental demostró que el tratamiento explícito del desbalance de clases es indispensable: mientras KNN y la Regresión Lineal solo identificaron el 5,31% de los accidentes con muertos a pesar de exhibir un Accuracy superior al 91%, el modelo <strong>Random Forest</strong> logró detectar el <strong>60,94% de los casos fatales</strong> (Recall = 0,6094; Balanced Accuracy = 0,7026; ROC AUC = 0,7788).
+                    </p>
+                </div>
+
+                <div class="card-hover-glow p-8 rounded-2xl space-y-4 shadow-xl">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-3">
+                        <div class="p-2.5 rounded-xl bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        Recomendaciones de Prevención Vial (Ley 2251 de 2022)
+                    </h3>
+                    <ul class="space-y-3 text-gray-300 text-sm sm:text-base">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-motorcycle text-teal-400 mt-1"></i>
+                            <span><strong>Enfoque en motociclistas:</strong> Dado que representan el 49,66% de los registros analizados, se sugiere priorizar campañas de conducción segura, uso de casco reglamentario y mantenimiento preventivo del sistema de frenos.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-map-pin text-teal-400 mt-1"></i>
+                            <span><strong>Priorización territorial:</strong> Focalizar planes de gestión de velocidad y señalización en departamentos y municipios con mayor volumen histórico (Antioquia, Valle del Cauca, Bogotá D.C. y Santander).</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-car text-teal-400 mt-1"></i>
+                            <span><strong>Control técnico-mecánico:</strong> Considerando una edad vehicular media de 11,76 años, se recomienda fortalecer el seguimiento al estado mecánico del parque automotor con más de una década de servicio.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Columna Derecha: Limitaciones del Sistema -->
+            <div class="lg:col-span-5 space-y-6">
+
+                <div class="card-hover-glow p-8 rounded-2xl space-y-6 shadow-xl border border-amber-500/30">
+                    <h3 class="text-lg font-bold text-amber-400 tracking-wider uppercase flex items-center gap-2">
+                        <i class="fa-solid fa-triangle-exclamation"></i> Limitaciones Metodológicas
+                    </h3>
+
+                    <ul class="space-y-4 text-sm sm:text-base text-gray-300">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-xmark text-amber-400 mt-1"></i>
+                            <span><strong>Sesgo de selección de registros:</strong> El conjunto contiene exclusivamente vehículos que ya estuvieron involucrados en siniestros. Al no contar con el total de vehículos no accidentados ni variables de exposición (kilómetros recorridos), el modelo estima la propensión de gravedad dado el accidente, no la probabilidad absoluta de colisión.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-xmark text-amber-400 mt-1"></i>
+                            <span><strong>Ausencia de variables operativas:</strong> La falta de un código único de evento (IPAT) y de factores como velocidad, estado anímico, alcoholemia o clima explica que la precisión sobre la clase minoritaria sea moderada.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-xmark text-amber-400 mt-1"></i>
+                            <span><strong>Inexistencia de causalidad directa:</strong> El modelo aprende asociaciones estadísticas; no demuestra que una marca, edad o ubicación cause por sí misma una fatalidad.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-gradient-to-br from-teal-950/40 to-blue-950/40 border border-teal-500/30 p-6 rounded-2xl text-center space-y-3">
+                    <p class="text-xs uppercase tracking-widest text-teal-400 font-bold">Cumplimiento Académico</p>
+                    <p class="text-sm text-gray-200">
+                        Aplicación web en Streamlit integrada con éxito, cumpliendo la totalidad de los objetivos de la Facultad de Ingeniería de la USCO.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-gray-800 bg-[#0b0f19] py-8 px-10 text-center text-xs text-gray-400 mt-16">
+    <div class="w-full max-w-[1900px] mx-auto flex flex-col sm:flex-row justify-between items-center gap-3">
+        <p class="font-bold text-gray-300">Sistema Inteligente para la Predicción y Prevención de Riesgos en la Seguridad Vial Urbana</p>
+        <p>Universidad Surcolombiana (USCO) · Facultad de Ingeniería (2026)</p>
+        <p class="text-teal-400 font-medium">Autor: Miguel Esteban Mendoza Calderón</p>
+    </div>
+</footer>
+
+</body>
+</html>

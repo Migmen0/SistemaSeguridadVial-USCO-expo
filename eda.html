@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploración EDA - Seguridad Vial USCO</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkbg: '#0b0f19',
+                        cardbg: '#111827',
+                        cardborder: '#1f293d',
+                        accent: '#0d9488',
+                        accentglow: '#14b8a6'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-darkbg text-gray-100 font-sans min-h-screen flex flex-col justify-between selection:bg-teal-500 selection:text-white">
+
+<!-- NAVBAR SUPERIOR -->
+<header class="sticky top-0 z-50 bg-[#0b0f19]/90 backdrop-blur-md border-b border-gray-800 px-8 py-5">
+    <div class="w-full max-w-[1900px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+        <!-- Logo y Título con enlace a Inicio -->
+        <a href="index.html" class="flex items-center gap-3.5 cursor-pointer group">
+            <div class="bg-teal-500/10 border border-teal-500/30 p-3 rounded-xl text-teal-400 group-hover:bg-teal-500/20 transition">
+                <i class="fa-solid fa-shield-halved text-2xl"></i>
+            </div>
+            <div>
+                <h1 class="font-bold text-lg tracking-wide text-white group-hover:text-teal-400 transition">Seguridad Vial USCO</h1>
+                <p class="text-xs text-gray-400">Ingeniería de Software · Universidad Surcolombiana</p>
+            </div>
+        </a>
+
+        <!-- Menú de Navegación multipágina -->
+        <nav class="flex flex-wrap items-center justify-center gap-2 text-sm font-medium">
+            <a href="index.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Inicio</a>
+            <a href="problema.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Problema</a>
+            <a href="datos.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Datos & Limpieza</a>
+            <a href="eda.html" class="px-3.5 py-2 rounded-lg transition text-teal-400 bg-teal-500/10">Exploración (EDA)</a>
+            <a href="modelos.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Modelos & ML</a>
+            <a href="simulador.html" class="px-3.5 py-2 rounded-lg bg-blue-600/20 border border-blue-500/40 text-blue-400 hover:bg-blue-600/30 flex items-center gap-1.5"><i class="fa-solid fa-wand-magic-sparkles"></i> Simulador</a>
+            <a href="conclusiones.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Conclusiones</a>
+        </nav>
+    </div>
+</header>
+
+<!-- CONTENIDO PRINCIPAL: EXPLORACIÓN DE DATOS (EDA) -->
+<main class="w-full max-w-[1900px] mx-auto px-8 lg:px-20 py-20 flex-grow">
+
+    <section class="relative overflow-hidden w-full animate-fade-in-up space-y-12">
+
+        <!-- Cabecera de la sección -->
+        <div class="space-y-4 text-left border-b border-gray-800 pb-8">
+
+            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                Análisis Exploratorio de <span class="bg-gradient-to-r from-teal-400 via-emerald-400 to-blue-500 bg-clip-text text-transparent">Datos (EDA)</span>
+            </h2>
+            <p class="text-gray-300 text-base sm:text-lg max-w-4xl leading-relaxed">
+                Hallazgos estadísticos sobre los 290.936 registros depurados, distribución de la gravedad, tipologías vehiculares y concentración territorial.
+            </p>
+        </div>
+
+        <!-- Grid de Tablas y Análisis EDA -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+
+            <!-- Columna Izquierda: Distribución de Gravedad y Tipos de Vehículos -->
+            <div class="lg:col-span-7 space-y-8">
+
+                <!-- Tabla 1: Distribución de la Gravedad -->
+                <div class="card-hover-glow p-8 rounded-2xl space-y-6 shadow-xl">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-3">
+                        <div class="p-2.5 rounded-xl bg-teal-500/10 text-teal-400 border border-teal-500/20">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                        </div>
+                        Distribución Univariada de la Gravedad Registrada
+                    </h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Evidencia un marcado desbalance de clases en el conjunto depurado ($N = 290.936$), donde la gran mayoría de registros corresponde a heridos y un porcentaje minoritario a fallecidos.
+                    </p>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-sm">
+                            <thead>
+                            <tr class="border-b border-gray-800 text-gray-400 bg-gray-900/40">
+                                <th class="py-3 px-4 font-semibold">Gravedad Registrada</th>
+                                <th class="py-3 px-4 font-semibold">Código Binario</th>
+                                <th class="py-3 px-4 font-semibold">Cantidad de Registros</th>
+                                <th class="py-3 px-4 font-semibold">Porcentaje (%)</th>
+                            </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-800/60 text-gray-300">
+                            <tr class="hover:bg-gray-800/20 transition">
+                                <td class="py-3 px-4 font-medium text-emerald-400">CON HERIDOS</td>
+                                <td class="py-3 px-4">0</td>
+                                <td class="py-3 px-4 font-bold">267.633</td>
+                                <td class="py-3 px-4 text-emerald-400 font-bold">91,99 %</td>
+                            </tr>
+                            <tr class="hover:bg-gray-800/20 transition">
+                                <td class="py-3 px-4 font-medium text-red-400">CON MUERTOS</td>
+                                <td class="py-3 px-4">1</td>
+                                <td class="py-3 px-4 font-bold">23.303</td>
+                                <td class="py-3 px-4 text-red-400 font-bold">8,01 %</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tabla 2: Tipos de Vehículo más frecuentes -->
+                <div class="card-hover-glow p-8 rounded-2xl space-y-6 shadow-xl">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-3">
+                        <div class="p-2.5 rounded-xl bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                            <i class="fa-solid fa-motorcycle"></i>
+                        </div>
+                        Tipos de Vehículo más Frecuentes
+                    </h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Las motocicletas concentran casi la mitad de las observaciones, reflejando su alta vulnerabilidad como actores viales en entornos urbanos.
+                    </p>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-sm">
+                            <thead>
+                            <tr class="border-b border-gray-800 text-gray-400 bg-gray-900/40">
+                                <th class="py-3 px-4 font-semibold">Tipo de Vehículo</th>
+                                <th class="py-3 px-4 font-semibold">Registros</th>
+                                <th class="py-3 px-4 font-semibold">Participación (%)</th>
+                            </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-800/60 text-gray-300">
+                            <tr class="hover:bg-gray-800/20 transition"><td class="py-3 px-4 font-medium text-white">MOTOCICLETA</td><td class="py-3 px-4">144.489</td><td class="py-3 px-4 text-teal-400 font-bold">49,66 %</td></tr>
+                            <tr class="hover:bg-gray-800/20 transition"><td class="py-3 px-4 font-medium text-white">AUTOMÓVIL</td><td class="py-3 px-4">65.141</td><td class="py-3 px-4">22,39 %</td></tr>
+                            <tr class="hover:bg-gray-800/20 transition"><td class="py-3 px-4 font-medium text-white">CAMIONETA</td><td class="py-3 px-4">33.292</td><td class="py-3 px-4">11,44 %</td></tr>
+                            <tr class="hover:bg-gray-800/20 transition"><td class="py-3 px-4 font-medium text-white">CAMIÓN</td><td class="py-3 px-4">11.882</td><td class="py-3 px-4">4,08 %</td></tr>
+                            <tr class="hover:bg-gray-800/20 transition"><td class="py-3 px-4 font-medium text-white">BUS</td><td class="py-3 px-4">10.214</td><td class="py-3 px-4">3,51 %</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Columna Derecha: Concentración Territorial y Antigüedad -->
+            <div class="lg:col-span-5 space-y-8">
+
+                <!-- Tabla 3: Concentración Territorial -->
+                <div class="card-hover-glow p-8 rounded-2xl space-y-6 shadow-xl">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-3">
+                        <div class="p-2.5 rounded-xl bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+                        Concentración Territorial
+                    </h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Principales departamentos y municipios con mayor volumen de registros históricos de siniestralidad.
+                    </p>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-sm">
+                            <thead>
+                            <tr class="border-b border-gray-800 text-gray-400 bg-gray-900/40">
+                                <th class="py-3 px-4 font-semibold">Departamento</th>
+                                <th class="py-3 px-4 font-semibold">Registros (%)</th>
+                                <th class="py-3 px-4 font-semibold">Municipio Lider</th>
+                            </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-800/60 text-gray-300">
+                            <tr class="hover:bg-gray-800/20 transition"><td class="py-3 px-4 font-medium text-white">ANTIOQUIA</td><td class="py-3 px-4">81.146 (27,89 %)</td><td class="py-3 px-4 text-teal-400">Medellín (26.376)</td></tr>
+                            <tr class="hover:bg-gray-800/20 transition"><td class="py-3 px-4 font-medium text-white">VALLE DEL CAUCA</td><td class="py-3 px-4">41.376 (14,22 %)</td><td class="py-3 px-4 text-teal-400">Cali (20.774)</td></tr>
+                            <tr class="hover:bg-gray-800/20 transition"><td class="py-3 px-4 font-medium text-white">BOGOTÁ D.C.</td><td class="py-3 px-4">29.353 (10,09 %)</td><td class="py-3 px-4 text-teal-400">Bogotá D.C. (29.353)</td></tr>
+                            <tr class="hover:bg-gray-800/20 transition"><td class="py-3 px-4 font-medium text-white">SANTANDER</td><td class="py-3 px-4">17.095 (5,88 %)</td><td class="py-3 px-4 text-teal-400">Bucaramanga (8.388)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Estadísticas de Edad Vehicular -->
+                <div class="card-hover-glow p-8 rounded-2xl space-y-4 shadow-xl border border-teal-500/20">
+                    <h3 class="text-lg font-bold text-teal-400 flex items-center gap-2">
+                        <i class="fa-solid fa-car-side"></i> Estadísticas de Edad Vehicular
+                    </h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Sobre un total de 290.853 datos válidos de edad vehicular, se destacan los siguientes descriptores estadísticos:
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li class="flex justify-between border-b border-gray-800 pb-2"><span>Media:</span> <strong class="text-white">11,76 años</strong></li>
+                        <li class="flex justify-between border-b border-gray-800 pb-2"><span>Mediana:</span> <strong class="text-white">10,00 años</strong></li>
+                        <li class="flex justify-between border-b border-gray-800 pb-2"><span>Desviación Estándar:</span> <strong class="text-white">8,21 años</strong></li>
+                        <li class="flex justify-between border-b border-gray-800 pb-2"><span>Rango Intercuartil (Q1 - Q3):</span> <strong class="text-white">6,00 - 15,00 años</strong></li>
+                        <li class="flex justify-between pt-1"><span>Máximo Registrado:</span> <strong class="text-white">87 años</strong></li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-gray-800 bg-[#0b0f19] py-8 px-10 text-center text-xs text-gray-400 mt-16">
+    <div class="w-full max-w-[1900px] mx-auto flex flex-col sm:flex-row justify-between items-center gap-3">
+        <p class="font-bold text-gray-300">Sistema Inteligente para la Predicción y Prevención de Riesgos en la Seguridad Vial Urbana</p>
+        <p>Universidad Surcolombiana (USCO) · Facultad de Ingeniería (2026)</p>
+        <p class="text-teal-400 font-medium">Autor: Miguel Esteban Mendoza Calderón</p>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos y Limpieza - Seguridad Vial USCO</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkbg: '#0b0f19',
+                        cardbg: '#111827',
+                        cardborder: '#1f293d',
+                        accent: '#0d9488',
+                        accentglow: '#14b8a6'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-darkbg text-gray-100 font-sans min-h-screen flex flex-col justify-between selection:bg-teal-500 selection:text-white">
+
+<!-- NAVBAR SUPERIOR -->
+<header class="sticky top-0 z-50 bg-[#0b0f19]/90 backdrop-blur-md border-b border-gray-800 px-8 py-5">
+    <div class="w-full max-w-[1900px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+        <!-- Logo y Título con enlace a Inicio -->
+        <a href="index.html" class="flex items-center gap-3.5 cursor-pointer group">
+            <div class="bg-teal-500/10 border border-teal-500/30 p-3 rounded-xl text-teal-400 group-hover:bg-teal-500/20 transition">
+                <i class="fa-solid fa-shield-halved text-2xl"></i>
+            </div>
+            <div>
+                <h1 class="font-bold text-lg tracking-wide text-white group-hover:text-teal-400 transition">Seguridad Vial USCO</h1>
+                <p class="text-xs text-gray-400">Ingeniería de Software · Universidad Surcolombiana</p>
+            </div>
+        </a>
+
+        <!-- Menú de Navegación multipágina -->
+        <nav class="flex flex-wrap items-center justify-center gap-2 text-sm font-medium">
+            <a href="index.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Inicio</a>
+            <a href="problema.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Problema</a>
+            <a href="datos.html" class="px-3.5 py-2 rounded-lg transition text-teal-400 bg-teal-500/10">Datos & Limpieza</a>
+            <a href="eda.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Exploración (EDA)</a>
+            <a href="modelos.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Modelos & ML</a>
+            <a href="simulador.html" class="px-3.5 py-2 rounded-lg bg-blue-600/20 border border-blue-500/40 text-blue-400 hover:bg-blue-600/30 flex items-center gap-1.5"><i class="fa-solid fa-wand-magic-sparkles"></i> Simulador</a>
+            <a href="conclusiones.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Conclusiones</a>
+        </nav>
+    </div>
+</header>
+
+<!-- CONTENIDO PRINCIPAL: DATOS Y LIMPIEZA -->
+<main class="w-full max-w-[1900px] mx-auto px-8 lg:px-20 py-20 flex-grow">
+
+    <section class="relative overflow-hidden w-full animate-fade-in-up space-y-12">
+
+        <!-- Cabecera de la sección -->
+        <div class="space-y-4 text-left border-b border-gray-800 pb-8">
+
+            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                Fuente, Auditoría y <span class="bg-gradient-to-r from-teal-400 via-emerald-400 to-blue-500 bg-clip-text text-transparent">Limpieza Reproducible</span>
+            </h2>
+            <p class="text-gray-300 text-base sm:text-lg max-w-4xl leading-relaxed">
+                Proceso de depuración, tratamiento de valores anómalos y prevención de fuga de información (data leakage) sobre los registros de la Ley 2251 de 2022.
+            </p>
+        </div>
+
+        <!-- Métricas Rápidas de Auditoría -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="card-hover-glow p-6 rounded-2xl space-y-2 border-l-4 border-l-teal-400">
+                <p class="text-xs uppercase tracking-wider text-gray-400 font-medium">Registros Originales (CSV)</p>
+                <p class="text-3xl font-extrabold text-white">450.335</p>
+                <p class="text-xs text-teal-400">Fuente abierta oficial (MinTransporte)</p>
+            </div>
+            <div class="card-hover-glow p-6 rounded-2xl space-y-2 border-l-4 border-l-blue-400">
+                <p class="text-xs uppercase tracking-wider text-gray-400 font-medium">Registros Finales (Modelado)</p>
+                <p class="text-3xl font-extrabold text-white">290.936</p>
+                <p class="text-xs text-blue-400">Libres de duplicados exactos</p>
+            </div>
+            <div class="card-hover-glow p-6 rounded-2xl space-y-2 border-l-4 border-l-amber-400">
+                <p class="text-xs uppercase tracking-wider text-gray-400 font-medium">Duplicados Excluidos</p>
+                <p class="text-3xl font-extrabold text-white">159.399</p>
+                <p class="text-xs text-amber-400">Prevención de fuga de datos</p>
+            </div>
+            <div class="card-hover-glow p-6 rounded-2xl space-y-2 border-l-4 border-l-emerald-400">
+                <p class="text-xs uppercase tracking-wider text-gray-400 font-medium">Periodo Cubierto</p>
+                <p class="text-3xl font-extrabold text-white">2022 - 2026</p>
+                <p class="text-xs text-emerald-400">Granularidad mensual (01/2022 a 09/2026)</p>
+            </div>
+        </div>
+
+        <!-- Tabla Detallada de Auditoría -->
+        <div class="card-hover-glow p-8 rounded-2xl space-y-6 shadow-xl">
+            <h3 class="text-xl font-bold text-white flex items-center gap-3">
+                <div class="p-2.5 rounded-xl bg-teal-500/10 text-teal-400 border border-teal-500/20">
+                    <i class="fa-solid fa-table-list"></i>
+                </div>
+                Tabla de Auditoría Verificable del Proceso de Limpieza
+            </h3>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse text-sm sm:text-base">
+                    <thead>
+                    <tr class="border-b border-gray-800 text-gray-400 bg-gray-900/40">
+                        <th class="py-4 px-6 font-semibold">Indicador de Auditoría</th>
+                        <th class="py-4 px-6 font-semibold">Valor Verificado</th>
+                        <th class="py-4 px-6 font-semibold">Decisión y Tratamiento Metodológico</th>
+                    </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-800/60 text-gray-300">
+                    <tr class="hover:bg-gray-800/20 transition">
+                        <td class="py-4 px-6 font-medium text-white">Registros originales (CSV crudo)</td>
+                        <td class="py-4 px-6 text-teal-400 font-bold">450.335</td>
+                        <td class="py-4 px-6 text-gray-400">Lectura inmutable desde la ruta <code class="text-xs bg-gray-800 px-2 py-1 rounded text-teal-300">data/raw/</code>.</td>
+                    </tr>
+                    <tr class="hover:bg-gray-800/20 transition">
+                        <td class="py-4 px-6 font-medium text-white">Filas exactamente duplicadas</td>
+                        <td class="py-4 px-6 text-amber-400 font-bold">159.399</td>
+                        <td class="py-4 px-6 text-gray-400">Excluidas en la tabla de modelado para evitar fuga de datos (data leakage) entre entrenamiento y prueba.</td>
+                    </tr>
+                    <tr class="hover:bg-gray-800/20 transition">
+                        <td class="py-4 px-6 font-medium text-white">Valores faltantes y anómalos (>100 años)</td>
+                        <td class="py-4 px-6 text-red-400 font-bold">83 casos</td>
+                        <td class="py-4 px-6 text-gray-400">20 nulos originales + 63 edades ilógicas marcadas como NaN e imputadas con la mediana dentro del Pipeline.</td>
+                    </tr>
+                    <tr class="hover:bg-gray-800/20 transition">
+                        <td class="py-4 px-6 font-medium text-white">Variables derivadas creadas</td>
+                        <td class="py-4 px-6 text-blue-400 font-bold">3 atributos</td>
+                        <td class="py-4 px-6 text-gray-400">Descomposición de fecha en <code class="text-xs bg-gray-800 px-2 py-1 rounded text-blue-300">ANIO_ACCIDENTE</code> y <code class="text-xs bg-gray-800 px-2 py-1 rounded text-blue-300">MES_ACCIDENTE</code>, más la etiqueta binaria <code class="text-xs bg-gray-800 px-2 py-1 rounded text-blue-300">GRAVEDAD_BINARIA</code> (0 = Heridos, 1 = Muertos).</td>
+                    </tr>
+                    <tr class="hover:bg-gray-800/20 transition">
+                        <td class="py-4 px-6 font-medium text-white">Registros finales para modelado</td>
+                        <td class="py-4 px-6 text-emerald-400 font-bold">290.936</td>
+                        <td class="py-4 px-6 text-gray-400">Exportados en <code class="text-xs bg-gray-800 px-2 py-1 rounded text-emerald-300">data/processed/vehiculos_limpios.csv</code> (12 columnas).</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Justificación Metodológica de Duplicados -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="card-hover-glow p-8 rounded-2xl space-y-4 shadow-xl">
+                <h3 class="text-xl font-bold text-white flex items-center gap-3">
+                    <div class="p-2.5 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                        <i class="fa-solid fa-clone"></i>
+                    </div>
+                    Tratamiento de Registros Duplicados
+                </h3>
+                <p class="text-gray-300 text-base leading-relaxed">
+                    La tabla oficial publicada bajo la Ley 2251 de 2022 registra vehículos individuales y carece de un identificador único de siniestro (IPAT) o de placa. Por ello, dos registros idénticos pueden obedecer a vehículos de características similares accidentados en el mismo mes y municipio, o bien a duplicados en el cargue institucional.
+                </p>
+                <p class="text-gray-300 text-base leading-relaxed">
+                    Para el aprendizaje automático, conservar las 159.399 copias idénticas habría provocado una grave <strong>fuga de información (data leakage)</strong> entre entrenamiento y prueba. Se decidió eliminarlas de la tabla de modelado, conservando 290.936 registros únicos.
+                </p>
+            </div>
+
+            <div class="card-hover-glow p-8 rounded-2xl space-y-4 shadow-xl">
+                <h3 class="text-xl font-bold text-white flex items-center gap-3">
+                    <div class="p-2.5 rounded-xl bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    Prevención de Fuga de Datos (Data Leakage)
+                </h3>
+                <p class="text-gray-300 text-base leading-relaxed">
+                    Todo el proceso de preprocesamiento (imputación de nulos y estandarización de variables numéricas con <code class="text-xs bg-gray-800 px-2 py-1 rounded text-teal-300">StandardScaler</code>) se encapsuló estrictamente dentro de objetos <code class="text-xs bg-gray-800 px-2 py-1 rounded text-teal-300">ColumnTransformer</code> y <code class="text-xs bg-gray-800 px-2 py-1 rounded text-teal-300">Pipeline</code> de Scikit-learn.
+                </p>
+                <p class="text-gray-300 text-base leading-relaxed">
+                    Esto garantiza que la mediana de imputación y las medias/desviaciones estándar se calculen <strong>exclusivamente sobre el conjunto de entrenamiento</strong>, evitando que información del conjunto de prueba contamine el entrenamiento de los algoritmos.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-gray-800 bg-[#0b0f19] py-8 px-10 text-center text-xs text-gray-400 mt-16">
+    <div class="w-full max-w-[1900px] mx-auto flex flex-col sm:flex-row justify-between items-center gap-3">
+        <p class="font-bold text-gray-300">Sistema Inteligente para la Predicción y Prevención de Riesgos en la Seguridad Vial Urbana</p>
+        <p>Universidad Surcolombiana (USCO) · Facultad de Ingeniería (2026)</p>
+        <p class="text-teal-400 font-medium">Autor: Miguel Esteban Mendoza Calderón</p>
+    </div>
+</footer>
+
+</body>
+</html>
