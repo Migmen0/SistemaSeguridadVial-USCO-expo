@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad Interactiva - Seguridad Vial USCO</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkbg: '#0b0f19',
+                        cardbg: '#111827',
+                        cardborder: '#1f293d',
+                        accent: '#0d9488',
+                        accentglow: '#14b8a6'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-darkbg text-gray-100 font-sans min-h-screen flex flex-col justify-between selection:bg-teal-500 selection:text-white">
+
+<!-- NAVBAR SUPERIOR -->
+<header class="sticky top-0 z-50 bg-[#0b0f19]/90 backdrop-blur-md border-b border-gray-800 px-8 py-5">
+    <div class="w-full max-w-[1900px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+        <!-- Logo y Título con enlace a Inicio -->
+        <a href="index.html" class="flex items-center gap-3.5 cursor-pointer group">
+            <div class="bg-teal-500/10 border border-teal-500/30 p-3 rounded-xl text-teal-400 group-hover:bg-teal-500/20 transition">
+                <i class="fa-solid fa-shield-halved text-2xl"></i>
+            </div>
+            <div>
+                <h1 class="font-bold text-lg tracking-wide text-white group-hover:text-teal-400 transition">Seguridad Vial USCO</h1>
+                <p class="text-xs text-gray-400">Ingeniería de Software · Universidad Surcolombiana</p>
+            </div>
+        </a>
+
+        <!-- Menú de Navegación multipágina -->
+        <nav class="flex flex-wrap items-center justify-center gap-2 text-sm font-medium">
+            <a href="index.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Inicio</a>
+            <a href="problema.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Problema</a>
+            <a href="datos.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Datos & Limpieza</a>
+            <a href="eda.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Exploración (EDA)</a>
+            <a href="modelos.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Modelos & ML</a>
+            <a href="simulador.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Simulador</a>
+            <a href="conclusiones.html" class="px-3.5 py-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-gray-800/50">Conclusiones</a>
+            <a href="actividad.html" class="px-3.5 py-2 rounded-lg bg-purple-600/20 border border-purple-500/40 text-purple-400 hover:bg-purple-600/30 flex items-center gap-1.5"><i class="fa-solid fa-gamepad"></i> Actividad</a>
+        </nav>
+    </div>
+</header>
+
+<!-- CONTENIDO PRINCIPAL: ACTIVIDAD INTERACTIVA -->
+<main class="w-full max-w-[1400px] mx-auto px-8 py-16 flex-grow space-y-12">
+
+    <!-- Cabecera de la sección -->
+    <div class="space-y-4 text-center border-b border-gray-800 pb-8">
+        <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white">
+            Poniendo a Prueba al <span class="bg-gradient-to-r from-purple-400 via-pink-400 to-teal-400 bg-clip-text text-transparent">Público y al Jurado</span>
+        </h2>
+    </div>
+
+    <!-- Contenedor Dinámico de Preguntas -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch" id="preguntas-container">
+        <!-- Las preguntas se inyectan dinámicamente mediante JavaScript -->
+    </div>
+
+    <!-- Botón de reinicio y rotación de preguntas -->
+    <div class="text-center pt-4">
+        <button onclick="cargarPreguntasAleatorias()" class="px-6 py-3 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-semibold text-sm transition border border-purple-500 shadow-lg cursor-pointer flex items-center justify-center gap-2 mx-auto">
+            <i class="fa-solid fa-shuffle"></i> Cambiar Preguntas (Reiniciar Dinámica)
+        </button>
+    </div>
+
+</main>
+
+<!-- SCRIPT DE BANCO DE PREGUNTAS Y SELECCIÓN ALEATORIA -->
+<script>
+    const bancoPreguntas = [
+        {
+            id: 1,
+            icono: "fa-motorcycle",
+            colorIcono: "text-teal-400",
+            badgeColor: "bg-teal-500/10 text-teal-400 border-teal-500/20",
+            texto: "Según los registros oficiales analizados (Ley 2251), ¿qué porcentaje de participación representan las motocicletas en los siniestros viales?",
+            opciones: [
+                { texto: "A) 20% - Un sector minoritario", correcta: false },
+                { texto: "B) ~50% casi la mitad", correcta: true },
+                { texto: "C) 85% - La gran mayoría absoluta", correcta: false }
+            ],
+            explicacionCorrecta: "🎉 <b>¡Correcto!</b> Las motocicletas representan el 49,66% de los vehículos involucrados, confirmando su alta vulnerabilidad como actores viales.",
+            explicacionIncorrecta: "❌ <b>Incorrecto.</b> La respuesta correcta es la <b>B (~50%)</b>. ¡Casi la mitad de todos los accidentes involucran motociclistas!"
+        },
+        {
+            id: 2,
+            icono: "fa-brain",
+            colorIcono: "text-blue-400",
+            badgeColor: "bg-blue-500/10 text-blue-400 border-blue-500/20",
+            texto: "Si un modelo obtiene 91% de Accuracy general pero detecta solo el 5% de los casos fatales, ¿por qué falló en la práctica?",
+            opciones: [
+                { texto: "A) Porque le faltaba más potencia de procesamiento", correcta: false },
+                { texto: "B) Cayó en la trampa del desbalance de clases (Accuracy engañoso)", correcta: true },
+                { texto: "C) Porque la Regresión Lineal no sirve para datos", correcta: false }
+            ],
+            explicacionCorrecta: "🎉 <b>¡Exacto!</b> El Accuracy engaña cuando hay desbalance (92% heridos vs 8% muertos). Por eso tuvimos que usar <i>Balanced Accuracy</i> y <i>Random Forest</i>.",
+            explicacionIncorrecta: "❌ <b>Incorrecto.</b> La respuesta es la <b>B</b>. El modelo se 'aprovechaba' de adivinar siempre a los heridos para tener un 91% falso de éxito."
+        },
+        {
+            id: 3,
+            icono: "fa-database",
+            colorIcono: "text-purple-400",
+            badgeColor: "bg-purple-500/10 text-purple-400 border-purple-500/20",
+            texto: "¿Por qué fue necesario eliminar 159.399 filas exactamente duplicadas antes de entrenar los modelos de Machine Learning?",
+            opciones: [
+                { texto: "A) Para ahorrar espacio en el disco duro del computador", correcta: false },
+                { texto: "B) Para prevenir estrictamente la fuga de datos (data leakage) en el train-test split", correcta: true },
+                { texto: "C) Porque el Ministerio de Transporte lo exigía por norma", correcta: false }
+            ],
+            explicacionCorrecta: "🎉 <b>¡Perfecto!</b> Evitar el <i>data leakage</i> es vital para que las filas idénticas no se repitan entre entrenamiento y prueba inflando métricas artificialmente.",
+            explicacionIncorrecta: "❌ <b>Incorrecto.</b> La razón principal fue técnica: evitar la fuga de información (<i>data leakage</i>) entre los conjuntos de entrenamiento y prueba."
+        },
+        {
+            id: 4,
+            icono: "fa-map-location-dot",
+            colorIcono: "text-amber-400",
+            badgeColor: "bg-amber-500/10 text-amber-400 border-amber-500/20",
+            texto: "En el análisis exploratorio (EDA), ¿cuál de los siguientes departamentos concentró el mayor volumen histórico de registros viales?",
+            opciones: [
+                { texto: "A) Antioquia ", correcta: true },
+                { texto: "B) Amazonas ", correcta: false },
+                { texto: "C) Bogota", correcta: false }
+            ],
+            explicacionCorrecta: "🎉 <b>¡Así es!</b> Antioquia lidera la concentración territorial con 81.146 registros (27,89%), seguido por el Valle del Cauca y Bogotá D.C.",
+            explicacionIncorrecta: "❌ <b>Incorrecto.</b> El departamento con mayor volumen registrado fue <b>Antioquia</b>, concentrando cerca del 28% de los registros del país."
+        },
+        {
+            id: 5,
+            icono: "fa-car-burst",
+            colorIcono: "text-rose-400",
+            badgeColor: "bg-rose-500/10 text-rose-400 border-rose-500/20",
+            texto: "¿Cuál fue el principal hallazgo al comparar el desempeño del algoritmo Random Forest frente al de KNN?",
+            opciones: [
+                { texto: "A) Ambos obtuvieron exactamente los mismos resultados", correcta: false },
+                { texto: "B) KNN detectó mejor los casos fatales que Random Forest", correcta: false },
+                { texto: "C) Random Forest detectó mas  casos fatales que KNN", correcta: true }
+            ],
+            explicacionCorrecta: "🎉 <b>¡Correcto!</b> Random Forest demostró un gran rendimiento manejando el desbalance, logrando un Recall del 60,94% en la clase fatal.",
+            explicacionIncorrecta: "❌ <b>Incorrecto.</b> KNN colapsó ante el desbalance (5,31% de recall en muertos), mientras que Random Forest logró detectar el 60,94% de los casos fatales."
+        },
+        {
+            id: 6,
+            icono: "fa-scale-balanced",
+            colorIcono: "text-emerald-400",
+            badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
+            texto: "¿Qué característica metodológica clave se estableció en la tesis respecto a la causalidad de los accidentes?",
+            opciones: [
+                { texto: "A) El sistema predice con 100% de certeza la hora exacta del próximo choque", correcta: false },
+                { texto: "B) El sistema estima la gravedad registrada dado el accidente, sin probar causalidad directa", correcta: true },
+                { texto: "C) El sistema reemplaza por completo la labor de las autoridades de tránsito", correcta: false }
+            ],
+            explicacionCorrecta: "🎉 <b>¡Muy bien!</b> El modelo aprende asociaciones estadísticas sobre eventos ya ocurridos; no demuestra que una variable cause por sí misma una fatalidad.",
+            explicacionIncorrecta: "❌ <b>Incorrecto.</b> Se aclaró estrictamente que el modelo estima la gravedad registrada tras el siniestro, sin atribuir causalidad directa ni absoluta."
+        }
+    ];
+
+    function mezclarArreglo(array) {
+        let arr = [...array];
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }
+
+    function cargarPreguntasAleatorias() {
+        const contenedor = document.getElementById('preguntas-container');
+        contenedor.innerHTML = "";
+
+        const preguntasSeleccionadas = mezclarArreglo(bancoPreguntas).slice(0, 2);
+
+        preguntasSeleccionadas.forEach((p, index) => {
+            let opcionesHTML = "";
+            p.opciones.forEach((op) => {
+                opcionesHTML += `
+                    <button onclick="verificarRespuesta(${p.id}, ${op.correcta}, this)" data-correcta="${op.correcta}" class="w-full text-left p-4 rounded-xl bg-gray-900/80 border border-gray-700 hover:border-purple-400 transition font-medium text-sm sm:text-base flex items-center justify-between group cursor-pointer">
+                        <span>${op.texto}</span>
+                        <i class="fa-regular fa-circle text-gray-500 group-hover:text-purple-400"></i>
+                    </button>
+                `;
+            });
+
+            const htmlPregunta = `
+                <div class="card-hover-glow p-8 rounded-2xl shadow-xl flex flex-col justify-between space-y-6 border border-gray-800 bg-[#111827]">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold px-3 py-1 rounded-full ${p.badgeColor} border">Pregunta ${index + 1} de 2 (Aleatoria)</span>
+                            <i class="fa-solid ${p.icono} text-2xl ${p.colorIcono}"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white leading-snug min-h-[56px]">
+                            ${p.texto}
+                        </h3>
+                    </div>
+
+                    <!-- Opciones -->
+                    <div class="space-y-3">
+                        ${opcionesHTML}
+                    </div>
+
+                    <!-- Feedback con altura fija para evitar saltos visuales -->
+                    <div id="feedback-${p.id}" class="p-4 rounded-xl text-sm font-medium opacity-0 transition-opacity duration-300 pointer-events-none min-h-[64px]"
+                         data-correcta-msg="${encodeURIComponent(p.explicacionCorrecta)}"
+                         data-incorrecta-msg="${encodeURIComponent(p.explicacionIncorrecta)}">
+                    </div>
+                </div>
+            `;
+            contenedor.innerHTML += htmlPregunta;
+        });
+    }
+
+    function verificarRespuesta(idPregunta, esCorrecta, botonElemento) {
+        const contenedorOpciones = botonElemento.parentElement;
+        const botones = contenedorOpciones.getElementsByTagName('button');
+
+        // Deshabilitar botones y revelar sutilmente cuál era la respuesta correcta
+        for (let btn of botones) {
+            btn.disabled = true;
+            btn.classList.add('opacity-70', 'cursor-not-allowed');
+
+            // Si este botón es el correcto, se marca de forma ligera (esmeralda suave)
+            if (btn.getAttribute('data-correcta') === 'true') {
+                btn.classList.remove('opacity-70', 'border-gray-700', 'bg-gray-900/80');
+                btn.classList.add('border-emerald-500/60', 'bg-emerald-500/10', 'text-emerald-300', 'opacity-100');
+            }
+        }
+
+        const feedbackEl = document.getElementById(`feedback-${idPregunta}`);
+        feedbackEl.classList.remove('opacity-0', 'pointer-events-none');
+
+        const msgCorrecta = decodeURIComponent(feedbackEl.getAttribute('data-correcta-msg'));
+        const msgIncorrecta = decodeURIComponent(feedbackEl.getAttribute('data-incorrecta-msg'));
+
+        if (esCorrecta) {
+            feedbackEl.className = "p-4 rounded-xl text-sm font-medium bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 animate-fade-in min-h-[64px]";
+            feedbackEl.innerHTML = msgCorrecta;
+            botonElemento.classList.add('border-emerald-500', 'bg-emerald-500/20', 'text-white', 'opacity-100');
+        } else {
+            feedbackEl.className = "p-4 rounded-xl text-sm font-medium bg-red-500/10 border border-red-500/30 text-red-400 animate-fade-in min-h-[64px]";
+            feedbackEl.innerHTML = msgIncorrecta;
+            // El que eligió mal se pone rojo claramente
+            botonElemento.classList.remove('border-gray-700');
+            botonElemento.classList.add('border-red-500', 'bg-red-500/20', 'text-white', 'opacity-100');
+        }
+    }
+
+    window.onload = function() {
+        cargarPreguntasAleatorias();
+    };
+</script>
+
+<!-- FOOTER -->
+<footer class="border-t border-gray-800 bg-[#0b0f19] py-8 px-10 text-center text-xs text-gray-400 mt-16">
+    <div class="w-full max-w-[1900px] mx-auto flex flex-col sm:flex-row justify-between items-center gap-3">
+        <p class="font-bold text-gray-300">Sistema Inteligente para la Predicción y Prevención de Riesgos en la Seguridad Vial Urbana</p>
+        <p>Universidad Surcolombiana (USCO) · Facultad de Ingeniería (2026)</p>
+        <p class="text-teal-400 font-medium">Autor: Miguel Esteban Mendoza Calderón</p>
+    </div>
+</footer>
+
+</body>
+</html>
